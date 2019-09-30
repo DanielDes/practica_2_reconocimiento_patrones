@@ -3,7 +3,7 @@ load('Imagen_B_clases.mat','b_urban','b_rural','b_virgen');
 load('Imagen_C_clases.mat','c_urban','c_rural','c_virgen');
 
 
-%Mostramos las m?scaras creadas
+%Mostramos las mascaras creadas
 figure;
 subplot(2,2,1);
 imshow(a_urban);
@@ -253,7 +253,7 @@ load('Test_1.mat','img4');
 figure;
 imshow(img4);
 test_1 = zeros(rows,columns);
-img4 = imread('img4.PNG');
+img4 = imread('img6.PNG');
 img4 = rgb2gray(img4);
 
 img4=imgaussfilt(img4);
@@ -264,7 +264,7 @@ for x = 1:rows
         double_value = double(img4(x,y));
         V = [double_value,x,y];
         
-        p_urban = exp((-1/2)*(V'- urbvan_mean)'*in_urb_cov*(V'- urbvan_mean))/sqrt((2*pi)*(det(urb_cov)));
+        p_urban = bayes_disc(V,urbvan_mean,urb_cov);
         p_rural = bayes_disc(V,rural_mean,rur_cov);
         p_virgen = bayes_disc(V,virgen_mean,vir_cov);
         
@@ -286,4 +286,4 @@ end
 
 figure;
 colormap gray;
-imagesc(prueba1);
+imagesc(test_1);
