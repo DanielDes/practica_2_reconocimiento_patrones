@@ -18,4 +18,3 @@ function [imagen] = recortar(img1)
     end
     imagen=img1;
 end
-
