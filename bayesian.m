@@ -79,57 +79,57 @@ for x = 1:rows
             pixel_counters(1,1) = pixel_counters(1,1) + 1;
             a_urbv_pix = a_urbv_pix + 1;
             double_pixel_value = double(a_urban(x,y));
-            a_urbv_mean = a_urbv_mean + [x,y,double_pixel_value];
+            a_urbv_mean = a_urbv_mean + [double_pixel_value,x,y];
         end
         if(a_rural(x,y)>1)
             pixel_counters(1,2) = pixel_counters(1,2) + 1;
             a_rural_pix = a_rural_pix + 1;
             double_pixel_value = double(a_rural(x,y));
-            a_rural_mean = a_rural_mean + [x,y,double_pixel_value];
+            a_rural_mean = a_rural_mean + [double_pixel_value,x,y];
         end
         if(a_virgen(x,y)>1)
             pixel_counters(1,3) = pixel_counters(1,3) + 1;
             a_virgen_pix = a_virgen_pix + 1;
             double_pixel_value = double(b_virgen(x,y));
-            a_virgen_mean = a_virgen_mean + [x,y,double_pixel_value];
+            a_virgen_mean = a_virgen_mean + [double_pixel_value,x,y];
         end
         
         if(b_urban(x,y)>1)
             pixel_counters(2,1) = pixel_counters(2,1) + 1;
             b_urbv_pix = b_urbv_pix + 1;
             double_pixel_value = double(b_urban(x,y));
-            b_urbv_mean = b_urbv_mean + [x,y,double_pixel_value];
+            b_urbv_mean = b_urbv_mean + [double_pixel_value,x,y];
         end
         if(b_rural(x,y)>1)
             pixel_counters(2,2) = pixel_counters(1,2) + 1;
             b_rural_pix = b_rural_pix + 1;
             double_pixel_value = double(a_rural(x,y));
-            b_rural_mean = b_rural_mean + [x,y,double_pixel_value];
+            b_rural_mean = b_rural_mean + [double_pixel_value,x,y];
         end
         if(b_virgen(x,y)>1)
             pixel_counters(2,3) = pixel_counters(2,3) + 1;
             b_virgen_pix = b_virgen_pix + 1;
             double_pixel_value = double(b_virgen(x,y));
-            b_virgen_mean = b_virgen_mean + [x,y,double_pixel_value];
+            b_virgen_mean = b_virgen_mean + [double_pixel_value,x,y];
         end
         
         if(c_urban(x,y)>1)
             pixel_counters(3,1) = pixel_counters(3,1) + 1;
             c_urbv_pix = c_urbv_pix + 1;
             double_pixel_value = double(c_urban(x,y));
-            c_urbv_mean = c_urbv_mean + [x,y,double_pixel_value];
+            c_urbv_mean = c_urbv_mean + [double_pixel_value,x,y];
         end
         if(c_rural(x,y)>1)
             pixel_counters(3,2) = pixel_counters(3,2) + 1;
             c_rural_pix = c_rural_pix + 1;
             double_pixel_value = double(c_rural(x,y));
-            c_rural_mean = c_rural_mean + [x,y,double_pixel_value];
+            c_rural_mean = c_rural_mean + [double_pixel_value,x,y];
         end
         if(c_virgen(x,y)>1)
             pixel_counters(3,3) = pixel_counters(3,3) + 1;
             c_virgen_pix = c_virgen_pix + 1;
             double_pixel_value = double(c_virgen(x,y));
-            c_virgen_mean = c_virgen_mean + [x,y,double_pixel_value];
+            c_virgen_mean = c_virgen_mean + [double_pixel_value,x,y];
         end
         
     end
@@ -186,60 +186,60 @@ for x = 1:rows
         
         if(a_urban(x,y)>1)
             double_pixel_value = double(a_urban(x,y));
-            pix = [x,y,double_pixel_value];
-            urb_cov = urb_cov + ((pix - urbvan_mean)' * (pix - urbvan_mean));
+            ua = [double_pixel_value,x,y];
+            urb_cov = urb_cov + ((ua - urbvan_mean)' * (ua - urbvan_mean));
         end
         if(a_rural(x,y)>1)
             double_pixel_value = double(a_rural(x,y));
-            pix = [x,y,double_pixel_value];
-            rur_cov = rur_cov + ((pix - rural_mean)' * (pix - rural_mean));
+            ra = [double_pixel_value,x,y];
+            rur_cov = rur_cov + ((ra - rural_mean)' * (ra - rural_mean));
         end
         if(a_virgen(x,y)>1)
             double_pixel_value = double(a_virgen(x,y));
-            pix = [x,y,double_pixel_value];
-            vir_cov = vir_cov + ((pix - virgen_mean)' * (pix - virgen_mean));
+            va = [double_pixel_value,x,y];
+            vir_cov = vir_cov + ((va - virgen_mean)' * (va - virgen_mean));
         end
         
         if(b_urban(x,y)>1)
             double_pixel_value = double(b_urban(x,y));
-            pix = [x,y,double_pixel_value];
-            urb_cov = urb_cov + ((pix - urbvan_mean)' * (pix - urbvan_mean));
+            ub = [double_pixel_value,x,y];
+            urb_cov = urb_cov + ((ub - urbvan_mean)' * (ub - urbvan_mean));
         end
         if(b_rural(x,y)>1)
             double_pixel_value = double(b_rural(x,y));
-            pix = [x,y,double_pixel_value];
-            rur_cov = rur_cov + ((pix - rural_mean)' * (pix - rural_mean));
+            rb = [double_pixel_value,x,y];
+            rur_cov = rur_cov + ((rb - rural_mean)' * (rb - rural_mean));
         end
         if(b_virgen(x,y)>1)
             double_pixel_value = double(b_virgen(x,y));
-            pix = [x,y,double_pixel_value];
-            vir_cov = vir_cov + ((pix - virgen_mean)' * (pix - virgen_mean));
+            vb = [double_pixel_value,x,y];
+            vir_cov = vir_cov + ((vb - virgen_mean)' * (vb - virgen_mean));
         end
         
         if(c_urban(x,y)>1)
             double_pixel_value = double(c_urban(x,y));
-            pix = [x,y,double_pixel_value];
-            urb_cov = urb_cov + ((pix - urbvan_mean)' * (pix - urbvan_mean));
+            uc = [double_pixel_value,x,y];
+            urb_cov = urb_cov + ((uc - urbvan_mean)' * (uc - urbvan_mean));
         end
         if(c_rural(x,y)>1)
             double_pixel_value = double(c_rural(x,y));
-            pix = [x,y,double_pixel_value];
-            rur_cov = rur_cov + ((pix - rural_mean)' * (pix - rural_mean));
+            rc = [double_pixel_value,x,y];
+            rur_cov = rur_cov + ((rc - rural_mean)' * (rc - rural_mean));
         end
         if(c_virgen(x,y)>1)
             double_pixel_value = double(c_virgen(x,y));
-            pix = [x,y,double_pixel_value];
-            vir_cov = vir_cov + ((pix - virgen_mean)' * (pix - virgen_mean));
+            vc = [double_pixel_value,x,y];
+            vir_cov = vir_cov + ((vc - virgen_mean)' * (vc - virgen_mean));
         end
         
     end
 end
 
 %terminamos de sacar covarianzas 
+vir_cov = vir_cov / (3 * (pixel_counters(3,1) + pixel_counters(3,2) + pixel_counters(3,3)));
+urb_cov = urb_cov / (3 * (pixel_counters(1,1) + pixel_counters(2,1) + pixel_counters(3,1)));
+rur_cov = rur_cov / (3 * (pixel_counters(1,2) + pixel_counters(2,2) + pixel_counters(3,2)));
 
-urb_cov = urb_cov / 3 * (pixel_counters(1,1) + pixel_counters(2,1) + pixel_counters(3,1));
-rur_cov = rur_cov / 3 * (pixel_counters(1,2) + pixel_counters(2,2) + pixel_counters(3,2));
-vir_cov = vir_cov / 3 * (pixel_counters(3,1) + pixel_counters(3,2) + pixel_counters(3,3));
 
 in_urb_cov = inv(urb_cov);
 in_rur_cov = inv(rur_cov);
@@ -253,25 +253,29 @@ load('Test_1.mat','img4');
 figure;
 imshow(img4);
 test_1 = zeros(rows,columns);
+img4 = imread('img4.PNG');
+img4 = rgb2gray(img4);
 
+img4=imgaussfilt(img4);
+ima4=double(img4);
 for x = 1:rows
     for y = 1:columns
         
         double_value = double(img4(x,y));
-        V = [x,y,double_value];
+        V = [double_value,x,y];
         
-        p_urban = bayes_disc(V,urbvan_mean,urb_cov);
+        p_urban = exp((-1/2)*(V'- urbvan_mean)'*in_urb_cov*(V'- urbvan_mean))/sqrt((2*pi)*(det(urb_cov)));
         p_rural = bayes_disc(V,rural_mean,rur_cov);
         p_virgen = bayes_disc(V,virgen_mean,vir_cov);
         
         value = 0;
         if( p_urban > p_rural && p_urban > p_virgen)
-            value = 200;
+            value = 250;
         else 
             if (p_rural > p_urban && p_rural > p_virgen)
-                value = 100;
+                value = 128;
             else 
-                value = 40;
+                value = 0;
             end
         end
         
@@ -281,4 +285,5 @@ end
 
 
 figure;
-imshow(test_1);
+colormap gray;
+imagesc(prueba1);

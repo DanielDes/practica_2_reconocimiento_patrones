@@ -1,5 +1,6 @@
-function [ proba ] = bayes_disc( value,mean,cov )
-    inv_cov = inv(cov);
-    proba = exp((-0.5) * (value' - mean)' * inv_cov * (value' - mean)) / sqrt((2 * pi) * det(cov));
+function [ proba ] = bayes_disc( x2,just_vmediap,scop )
+    invscop = inv(scop);
+    proba = exp((-1/2)*(x2'- just_vmediap)'*invscop*(x2'- just_vmediap))/sqrt((2*pi)*(det(scop)));
+    
 end
 

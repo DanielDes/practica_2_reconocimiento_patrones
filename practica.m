@@ -28,16 +28,16 @@ img2=rgb2gray(img2);
 img3=rgb2gray(img3);
 img4=rgb2gray(img4);
 %aplicando ruido gaussiano
-img1 = imnoise(img1,'gaussian',0.1);
-img2 = imnoise(img2,'gaussian',0.1);
-img3 = imnoise(img3,'gaussian',0.1);
-img4 = imnoise(img4,'gaussian',0.1);
+% img1 = imnoise(img1,'gaussian',0.1);
+% img2 = imnoise(img2,'gaussian',0.1);
+% img3 = imnoise(img3,'gaussian',0.1);
+% img4 = imnoise(img4,'gaussian',0.1);
 
 %aplicando un filtro gaussiano para suavizar las imagenes
-img1=imgaussfilt(img1,[2 2]);
-img2=imgaussfilt(img2,[2 2]);
-img3=imgaussfilt(img3,[2 2]);
-img4=imgaussfilt(img4,[2 2]);
+img1=imgaussfilt(img1);
+img2=imgaussfilt(img2);
+img3=imgaussfilt(img3);
+img4=imgaussfilt(img4);
 
 %Definiendo clases de img1
 a_urban = recortar(img1);
